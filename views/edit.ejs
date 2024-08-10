@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Title</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="w-full h-full bg-zinc-900 flex flex-col items-center p-4">
+    <div class="bg-zinc-800 p-6 rounded-lg shadow-lg w-full max-w-md">
+        <a href="/" class="text-blue-400 hover:underline mb-4 inline-block">Go back to Home</a>
+        <form action="/edit" method="post" class="flex flex-col space-y-4">
+            <input 
+                type="text"  
+                placeholder="Previous name" 
+                name="previous" 
+                value="<%= filename %>"
+                class="px-4 py-2 rounded-lg bg-zinc-700 text-slate-400 placeholder-zinc-500 focus:outline-none"
+                readonly
+            />
+            <input 
+                type="text" 
+                placeholder="Write new name" 
+                name="new" 
+                class="px-4 py-2 rounded-lg bg-zinc-700 text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            <input 
+                type="submit" 
+                value="Edit Title" 
+                class="px-4 py-2 rounded-lg bg-yellow-600 text-white cursor-pointer hover:bg-yellow-700"
+            />
+        </form>
+    </div>
+</body>
+</html>

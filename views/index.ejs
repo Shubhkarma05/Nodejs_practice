@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="w-full h-full bg-zinc-900 flex flex-col justify-center items-center">
+    <div class="form bg-zinc-800 p-6 rounded-lg shadow-lg w-1/3 mt-3">
+      <form action="/create" method="post" class="flex flex-col space-y-4">
+        <input
+          type="text"
+          placeholder="Title"
+          name="title"
+          class="px-4 py-2 rounded-lg bg-zinc-700 text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-zinc-500"
+        />
+        <textarea
+          placeholder="Write note"
+          name="details"
+          class="px-4 py-2 rounded-lg bg-zinc-700 text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-zinc-500 h-32 resize-none"
+        ></textarea>
+        <input
+          type="submit"
+          value="Create note"
+          class="px-4 py-2 rounded-lg bg-blue-600 text-white cursor-pointer hover:bg-blue-700"
+        />
+      </form>
+    </div>
+    
+    <% if(files.length > 0) { %>
+      <% files.forEach((val) => { %>
+        <div class="task bg-zinc-800 p-6 rounded-lg shadow-lg w-1/3 mt-6 text-center">
+          <h1 class="text-2xl font-semibold text-white mb-2"><%= val %></h1>
+          <div class="flex justify-center space-x-4">
+            <a href="/file/<%= val %>" class="text-blue-400 hover:underline">Read more</a>
+            <a href="/delete/<%= val %>" class="text-red-400 hover:underline">Delete</a>
+            <a href="/edit/<%= val %>" class="text-yellow-400 hover:underline">Edit title</a>
+          </div>
+        </div>
+      <% }); %>
+    <% } else { %>
+      <h3 class="text-white mt-6">No task yet..</h3>
+    <% } %>
+  </body>
+</html>
